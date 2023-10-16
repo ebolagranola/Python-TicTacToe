@@ -45,18 +45,16 @@ def get_user_move():
 
 def get_AI_move():
     random_value = randint(0, 8)
-    print(random_value)
-    print(random_value)
-    print(random_value)
-    print(random_value)
-    print(random_value)
-    print(random_value)
 
     while not is_valid_position(random_value):
         random_value = randint(0, 8)
 
     board[random_value] = "O"
     return board
+
+
+def check_for_win():
+    return True
 
 
 def main():
