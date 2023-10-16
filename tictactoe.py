@@ -50,6 +50,7 @@ def get_AI_move():
         random_value = randint(0, 8)
 
     board[random_value] = "O"
+    print(f"AI placed O in cell {random_value + 1}\n")    
     return board
 
 
