@@ -7,6 +7,9 @@ __license__ = "MIT"
 
 
 board = [" " for _ in range(9)]
+win_positions = [[0,1,2], [3,4,5], [6,7,8], # Columns
+                 [0,3,6], [2,4,7], [2,5,8], # Rows
+                 [0,4,8], [2,4,6]]          # Diagonals
 
 
 def print_board(game_board):
@@ -18,14 +21,19 @@ def print_board(game_board):
 
 
 def init_game():
+    print(f"{__project__}\nBy {__author__}\nv{__version__}\n")
     print_board(board)
 
 
 def run_game():
     while True:
         print_board(get_user_move())
+        if check_for_game_over():
+            break
+        
         print_board(get_AI_move())
-        check_for_win()
+        if check_for_game_over():
+            break
 
 
 def is_valid_position(position):
@@ -54,13 +62,17 @@ def get_AI_move():
     return board
 
 
-def check_for_win():
-    return True
+def check_for_game_over():
+    for win_state in win_positions:
+        if board[win_state[0]] == "X" and board[win_state[1]] == "X" and board[win_state[2]] == "X":
+            print("X - WINNER!!!")
+            return True
+        elif board[win_state[0]] == "O" and board[win_state[1]] == "O" and board[win_state[2]] == "O":
+            print("O - WINNER!!!")
+            return True
 
 
 def main():
-    print(f"{__project__}\nBy {__author__}\nv{__version__}\n")
-
     init_game()
     run_game()
 
