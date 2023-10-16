@@ -7,22 +7,32 @@ __license__ = "MIT"
 board = [" " for _ in range(9)]
 
 
-def create_board():
-    print(f" {board[0]} | {board[1]} | {board[2]} ")
+def create_board(game_board):
+    print(f" {game_board[0]} | {game_board[1]} | {game_board[2]}")
     print("---+---+---")
-    print(f" {board[3]} | {board[4]} | {board[5]} ")
+    print(f" {game_board[3]} | {game_board[4]} | {game_board[5]}")
     print("---+---+---")
-    print(f" {board[6]} | {board[7]} | {board[8]} ")
+    print(f" {game_board[6]} | {game_board[7]} | {game_board[8]}\n")
+
+
+def update_board():
+    print()
 
 
 def init_game():
-    create_board()
+    create_board(board)
+
+
+def request_input():
+    user_input = input("Select cell 1-9: ");
+    print(user_input)
 
 
 def main():
-    print(f"{__project__}\nBy {__author__}\nv{__version__}")
+    print(f"{__project__}\nBy {__author__}\nv{__version__}\n")
 
     init_game()
+    request_input()
 
 
 if __name__ == "__main__":
